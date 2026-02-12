@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Valentine ❤️</title>
+
+<style>
+body {
+    background-color: #ffe6f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 100px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+button {
+    font-size: 20px;
+    padding: 15px 30px;
+    margin: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#yes {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+#no {
+    background-color: grey;
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Will You Be My Valentine? 💖</h1>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="yes" onclick="yesClicked()">Yes ❤️</button>
+<button id="no" onclick="moveButton()">No 😢</button>
+
+<script>
+function yesClicked() {
+    document.getElementById("bgMusic").play();
+    alert("I love you so much ❤️ Happy Valentine’s Day!");
+}
+
+function moveButton() {
+    const btn = document.getElementById("no");
+    btn.style.position = "absolute";
+    btn.style.left = Math.random() * window.innerWidth + "px";
+    btn.style.top = Math.random() * window.innerHeight + "px";
+}
+</script>
+
+</body>
+</html>
