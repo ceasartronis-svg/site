@@ -9,6 +9,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding-top: 100px;
+    transition: background 1s;
 }
 
 h1 {
@@ -33,13 +34,20 @@ button {
     background-color: grey;
     color: white;
 }
-</style>
 
+/* Hidden love message */
+#loveMessage {
+    display: none;
+    font-size: 30px;
+    margin-top: 40px;
+    color: #ff1a4d;
+}
+</style>
 </head>
 
 <body>
 
-<h1>Will You Be My Valentine? 💖</h1>
+<h1 id="mainTitle">May I be your Valentine? 💖</h1>
 
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
@@ -48,10 +56,42 @@ button {
 <button id="yes" onclick="yesClicked()">Yes ❤️</button>
 <button id="no" onclick="moveButton()">No 😢</button>
 
+<div id="loveMessage">
+    You make my world brighter every single day ❤️  
+    Happy Valentine’s Day my love 💕
+</div>
+
 <script>
 function yesClicked() {
+
+    // Play music
     document.getElementById("bgMusic").play();
-    alert("I love you so much ❤️ Happy Valentine’s Day!");
+
+    // Change background
+    document.body.style.background =
+        "linear-gradient(45deg, #ff99cc, #ffe6f0, #ffb3d9)";
+
+    // Change title
+    document.getElementById("mainTitle").innerText =
+        "YAY!!! ❤️";
+
+    // Show love message
+    document.getElementById("loveMessage").style.display = "block";
+
+    // Hide buttons
+    document.getElementById("yes").style.display = "none";
+    document.getElementById("no").style.display = "none";
+
+    // Make hearts
+    for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "💖";
+        heart.style.position = "absolute";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = Math.random() * window.innerHeight + "px";
+        heart.style.fontSize = "30px";
+        document.body.appendChild(heart);
+    }
 }
 
 function moveButton() {
